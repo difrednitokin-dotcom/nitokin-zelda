@@ -4,10 +4,7 @@
 <head><script>(function(){var t='light';try{t=localStorage.getItem('nitokin-patch-theme')==='dark'?'dark':'light'}catch(e){}document.documentElement.setAttribute('data-theme',t)})();</script>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-
-
-
-<title>The Legend of Zelda: Breath of the Wild | NITOKIN LAB.</title>
+<title>The Legend of Zelda: Breath of the Wild | SST Ξ NITOKIN</title>
 <meta content="#f6f7f9" name="theme-color"/><meta content="The Legend of Zelda: Breath of the Wild 1.9.0 на ПК. Независимый нативный порт Savage Wind Recomp, особенности, скриншоты, установка и Patch Notes — NITOKIN LAB." name="description"/><style>
 /* NITOKIN LAB. — Main game page / same visual system as Patch Notes v2 */
 :root{color-scheme:light;--bg:#f6f7f9;--paper:#fff;--ink:#1d242d;--muted:#69717d;--subtle:#87909d;--line:#dedfe3;--soft:#f4f4f6;--soft2:#eceef1;--brand:#2f6357;--brand-hover:#184c42;--highlight:#eaf3ee;--chip:#fff;--tag-text:#707986;--track:#e0e4e6;--success:#3baf65;--success-bg:#e6f5e9;--gold:#bb9b65;--shadow:0 12px 32px rgba(20,29,38,.045);--note:#fff8e9;--input-focus:#86ab9f;--overlay:rgba(16,22,24,.58)}
@@ -31,14 +28,81 @@ main{padding-bottom:48px}.page-kicker,.kicker,.eyebrow{display:flex;align-items:
 
 /* Narrow phone: keep site tools accessible instead of clipping the theme and archive link */
 @media(max-width:480px){.topbar{flex-wrap:wrap;row-gap:12px}.top-actions{width:100%;justify-content:space-between}.theme-switch{width:auto;padding:7px 12px}.theme-switch span{display:inline}.brand-sub{font-size:8px}}
+</style><style>
+
+/* SST Ξ NITOKIN — compact monochrome logo aligned with the site's UI icons */
+.brand.sst-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  flex: 0 1 auto;
+  white-space: nowrap;
+  color: var(--ink);
+  text-decoration: none;
+}
+.sst-brand .brand-mark {
+  display: block;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  color: var(--muted);
+  background: none;
+  border: none;
+  box-shadow: none;
+  filter: none;
+  transition: color .18s ease;
+}
+.sst-brand:hover .brand-mark { color: var(--brand); transform: none; filter: none; }
+.sst-brand .brand-name {
+  display: inline-flex;
+  align-items: center;
+  gap: .23em;
+  white-space: nowrap;
+  font-family: "Segoe UI Variable Display", "Segoe UI", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -.025em;
+  color: var(--ink);
+}
+.sst-brand .brand-xi {
+  display: inline;
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  color: #9467d9;
+  font-size: 1.05em;
+  font-weight: 850;
+  line-height: 1;
+  margin: 0 .01em;
+}
+html[data-theme="dark"] .sst-brand .brand-xi { color: #bc9af4; }
+.sst-brand:focus-visible { outline: 2px solid var(--input-focus); outline-offset: 4px; border-radius: 4px; }
+@media (max-width: 700px) {
+  .brand.sst-brand { gap: 8px; }
+  .sst-brand .brand-mark { width: 29px; height: 29px; flex-basis: 29px; }
+  .sst-brand .brand-name { font-size: 14px; }
+}
+@media (max-width: 405px) {
+  .brand.sst-brand { gap: 6px; }
+  .sst-brand .brand-mark { width: 27px; height: 27px; flex-basis: 27px; }
+  .sst-brand .brand-name { font-size: 13px; }
+}
+
 </style></head>
 <body>
 <header class="sitehead" id="top">
 <div class="topbar">
-<a aria-label="NITOKIN LAB. — Главная" class="brand" href="#top">
-<span aria-hidden="true" class="brand-emblem">N</span>
-<span><span class="brand-name">NITOKIN LAB.</span><br/><span class="brand-sub">GAME COLLECTION · PC EDITION</span></span>
-</a>
+<a aria-label="SST Ξ NITOKIN — Главная" class="brand sst-brand" href="#top"><svg aria-hidden="true" class="brand-mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <path d="M23 25.5v-4.2C23 14.6 27.3 11 32 11s9 3.6 9 10.3v4.2" fill="currentColor"/>
+  <path d="M15.5 27.5c5-2.4 10.5-3.4 16.5-3.4s11.5 1 16.5 3.4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="4.7"/>
+  <path d="M10.7 35h7M46.3 35h7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="3.6"/>
+  <circle cx="24" cy="35.5" r="6.7" fill="none" stroke="currentColor" stroke-width="4"/>
+  <circle cx="40" cy="35.5" r="6.7" fill="none" stroke="currentColor" stroke-width="4"/>
+  <path d="M30.8 35.4c.8-1 1.7-1 2.5 0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="3"/>
+  <path d="M23.8 44.2C26.6 47.3 29.5 51.1 32 55c2.5-3.9 5.4-7.7 8.2-10.8-5 2.4-11.4 2.4-16.4 0Z" fill="currentColor"/>
+</svg><span class="brand-name">SST <span class="brand-xi">Ξ</span> NITOKIN</span></a>
 <div class="top-actions">
 <button aria-label="Включить тёмную тему" class="theme-switch" id="theme-switch" title="Переключить цветовую тему" type="button">
 <svg class="icon moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M20.6 15.4A9 9 0 0 1 8.6 3.4 9 9 0 1 0 20.6 15.4Z"></path></svg>
@@ -115,7 +179,7 @@ main{padding-bottom:48px}.page-kicker,.kicker,.eyebrow{display:flex;align-items:
 <article aria-labelledby="t-game" class="change-panel" id="panel-game" role="tabpanel"><span class="change-tag">Февраль 2026 · Nintendo Switch</span><h3>The Legend of Zelda: Breath of the Wild 1.9.0</h3><ul><li>Исправлен ряд неполадок для улучшения игрового процесса.</li><li>Для Nintendo Switch 2 добавлена поддержка тайского текста при соответствующей системной локали.</li><li>Тайская озвучка не добавлялась: при автоматическом выборе используется английский звук.</li><li>В порте Savage Wind поддержка тайского текста пока не полностью реализована.</li><li>Это обновление оригинальной игры, а не патч нативного PC-порта.</li></ul><a class="source" href="https://www.nintendo.com/en-gb/Support/Nintendo-Switch/Game-Updates/How-to-Update-The-Legend-of-Zelda-Breath-of-the-Wild-1482917.html" rel="noopener noreferrer" target="_blank">Официальная история обновлений Nintendo ↗</a><small>По официальному описанию Nintendo: подробный перечень остальных исправленных ошибок версии 1.9.0 не опубликован.</small></article></div><a class="all-notes-link" href="./patchnotes/">Открыть полную историю обновлений <span aria-hidden="true">↗</span></a></div></section>
 <section class="specs" id="requirements"><div class="section"><div class="kicker"><i></i> 06 / Железо</div><h2>Системные требования</h2><p class="lead">Официальный технический минимум и ориентир по производительности. ОЗУ и конфигурация для 60 FPS — оценка / известный тест, а не гарантированный минимум разработчика.</p>
 <div class="specgrid"><div class="specbox"><h3>Технический минимум</h3><div class="specline"><span>ОС</span><b>Windows 10 x64 и новее</b></div><div class="specline"><span>Процессор</span><b>x64 с SSE4.2</b></div><div class="specline"><span>Видеокарта</span><b>Поддержка Vulkan 1.3</b></div><div class="specline"><span>Оперативная память</span><b>Официально не указана</b></div><div class="specline"><span>Диск</span><b>≈ 35 ГБ для подготовки</b></div></div><div class="specbox"><h3>Ориентир для 1080p / 60 FPS</h3><div class="specline"><span>ОС</span><b>Windows 10 / 11 x64</b></div><div class="specline"><span>Процессор</span><b>Ryzen 5 5600X</b></div><div class="specline"><span>Видеокарта</span><b>GeForce RTX 3060</b></div><div class="specline"><span>Оперативная память</span><b>16 ГБ (практический ориентир)</b></div><div class="specline"><span>Накопитель</span><b>SSD предпочтителен</b></div></div></div><p class="fine">Разработчик сообщает о стабильных 60 FPS на Великом плато с RTX 3060 и Ryzen 5 5600X. Для других регионов, драйверов, графических режимов и ПК результат может отличаться. Для готовой установки укажи фактический размер своей папки вместо приблизительных 35 ГБ.</p></div></section>
-</main><footer class="footer"><div class="footer-in"><div class="footer-topnote"><strong>NITOKIN LAB.</strong><span>Оригинальная игра © Nintendo. Savage Wind — независимый фанатский порт; права на игровые материалы сохраняются за правообладателями.</span></div><div><div class="footer-links"><a href="./patchnotes/">Архив обновлений NITOKIN ↗</a><a href="https://github.com/Revivedx/SavageWindRecomp/releases" rel="noopener noreferrer" target="_blank">GitHub · Savage Wind ↗</a><a href="https://github.com/Revivedx/SavageWindRecomp/blob/main/CHANGELOG.md" rel="noopener noreferrer" target="_blank">Полный Changelog ↗</a><a href="https://rutracker.org/forum/viewtopic.php?t=6702315&amp;start=90" rel="noopener noreferrer" target="_blank">Тема сообщества ↗</a><a href="https://www.nintendo.com/en-gb/Support/Nintendo-Switch/Game-Updates/How-to-Update-The-Legend-of-Zelda-Breath-of-the-Wild-1482917.html" rel="noopener noreferrer" target="_blank">Nintendo · Updates ↗</a></div><div class="footer-credit">The Legend of Zelda: Breath of the Wild © Nintendo. Savage Wind Recomp — независимый фанатский проект Revivedx. NITOKIN LAB. — оформление локальной сборки, не связанное с Nintendo или разработчиками Savage Wind. Сторонние изображения принадлежат их правообладателям.</div></div><div class="footer-brand">NITOKIN LAB.<small>CURATED GAME RELEASE</small></div></div></footer>
+</main><footer class="footer"><div class="footer-in"><div class="footer-topnote"><strong>SST <span class="brand-xi">Ξ</span> NITOKIN</strong><span>Оригинальная игра © Nintendo. Savage Wind — независимый фанатский порт; права на игровые материалы сохраняются за правообладателями.</span></div><div><div class="footer-links"><a href="./patchnotes/">Архив обновлений NITOKIN ↗</a><a href="https://github.com/Revivedx/SavageWindRecomp/releases" rel="noopener noreferrer" target="_blank">GitHub · Savage Wind ↗</a><a href="https://github.com/Revivedx/SavageWindRecomp/blob/main/CHANGELOG.md" rel="noopener noreferrer" target="_blank">Полный Changelog ↗</a><a href="https://rutracker.org/forum/viewtopic.php?t=6702315&amp;start=90" rel="noopener noreferrer" target="_blank">Тема сообщества ↗</a><a href="https://www.nintendo.com/en-gb/Support/Nintendo-Switch/Game-Updates/How-to-Update-The-Legend-of-Zelda-Breath-of-the-Wild-1482917.html" rel="noopener noreferrer" target="_blank">Nintendo · Updates ↗</a></div><div class="footer-credit">The Legend of Zelda: Breath of the Wild © Nintendo. Savage Wind Recomp — независимый фанатский проект Revivedx. NITOKIN LAB. — оформление локальной сборки, не связанное с Nintendo или разработчиками Savage Wind. Сторонние изображения принадлежат их правообладателям.</div></div><div class="footer-brand">SST <span class="brand-xi">Ξ</span> NITOKIN</div></div></footer>
 <div aria-hidden="true" aria-label="Просмотр скриншота" class="modal" id="lightbox" role="dialog"><button aria-label="Закрыть" id="closebox" type="button">×</button><img alt="Скриншот игры" id="modalimg"/><p id="modalcaption"></p></div>
 <script>
 (function(){
