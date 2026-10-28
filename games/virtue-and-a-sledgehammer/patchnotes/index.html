@@ -169,6 +169,8 @@ html[data-theme="dark"] .sst-brand .brand-xi { color: #bc9af4; }
 
 
 /* Virtue page additions */
+.build-highlight{color:var(--brand);text-decoration:none;font-weight:800}.build-highlight:hover{text-decoration:underline}.build-secondary{font-size:13px;color:var(--muted)}.source-inline{font-weight:800;color:var(--brand);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+
 .release-label{font-size:10px;border:1px solid var(--line);border-radius:4px;padding:2px 7px;background:var(--soft);font-weight:800;color:var(--muted);white-space:nowrap}
 .release.latest .release-label{background:var(--highlight);color:var(--brand);border-color:var(--input-focus)}
 .status-line{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
@@ -226,7 +228,7 @@ html[data-theme="dark"] .sst-brand .brand-xi { color: #bc9af4; }
 </div>
 <div class="overview-col">
 <svg aria-hidden="true" class="overview-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.7" viewBox="0 0 24 24"><circle cx="6" cy="4" r="2"/><circle cx="6" cy="20" r="2"/><circle cx="18" cy="6" r="2"/><path d="M6 6v12m0-8c0-3 4-4 10-4"/></svg>
-<div class="overview-copy"><div class="overview-label">Выпуск / номер версии</div><div class="overview-title version-body"><span class="nowrap">27.10.2026</span><span class="version-separator">|</span><span>Номер версии не опубликован</span></div></div>
+<div class="overview-copy"><div class="overview-label">Публичная сборка Steam / версия игры</div><div class="overview-title version-body"><span class="nowrap"><a href="https://steamdb.info/patchnotes/26242019/" target="_blank" rel="noopener noreferrer" class="build-highlight">Build 26242019 ↗</a></span><span class="version-separator">|</span><span class="build-secondary">Версия формата 1.x не указана</span></div></div>
 </div>
 </div>
 <div class="overview-secondary">
@@ -234,12 +236,12 @@ html[data-theme="dark"] .sst-brand .brand-xi { color: #bc9af4; }
 <div><strong>Virtue and a Sledgehammer</strong><span class="divider-char"> | </span>История анонсов, релиза и подтверждённых обновлений. Информация из Steam и заявлений разработчиков.</div>
 </div>
 </section>
-<div class="summary-note"><strong>Статус на 28 октября 2026.</strong> Игра вышла 27 октября. Отдельных официальных патч-ноутов с номерами версий и перечнями исправлений в проверенных источниках пока не обнаружено. Ниже представлены подтверждённые этапы выхода — это <strong>не патчи</strong> установленной игры.</div>
+<div class="summary-note"><strong>Статус на 28 октября 2026.</strong> SteamDB подтверждает <a class="source-inline" href="https://steamdb.info/patchnotes/26242019/" target="_blank" rel="noopener noreferrer">публичную сборку Build 26242019</a> от 27 октября 2026 года. Идентификатор <strong>Build ID известен</strong>, но он не означает, что версия игры называется 1.0.0. Для этой сборки подробные официальные примечания об исправлениях не опубликованы. Во вкладке «Сборки» — техническая запись SteamDB, во вкладке «События» — история анонсов и релиза.</div>
 <section class="history" aria-labelledby="history-title">
 <div class="card-head"><h2 id="history-title">История изменений <small id="total-label">· 5 событий</small></h2><span class="current">Последняя запись: <b id="latest-date">27 окт 2026</b></span></div>
 <div class="tabs" role="tablist" aria-label="Выбор истории">
 <button class="tab" id="tab-events" role="tab" aria-controls="panel-events" aria-selected="true" type="button">События <span class="count-pill">5</span></button>
-<button class="tab" id="tab-patches" role="tab" aria-controls="panel-patches" aria-selected="false" type="button">Патчи <span class="count-pill">0</span></button>
+<button class="tab" id="tab-patches" role="tab" aria-controls="panel-patches" aria-selected="false" type="button">Сборки <span class="count-pill">1</span></button>
 </div>
 <div class="tools">
 <label class="search"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg><input aria-label="Поиск по событиям" id="search" placeholder="Найти событие или изменение…" type="search" autocomplete="off"></label>
@@ -299,18 +301,35 @@ html[data-theme="dark"] .sst-brand .brand-xi { color: #bc9af4; }
 <div class="empty" id="search-empty" role="status">Ничего не найдено. Попробуй другой запрос.</div>
 </div></div>
 <div id="panel-patches" class="panel" role="tabpanel" aria-labelledby="tab-patches" hidden>
-<div class="status-card"><div class="status-icon" aria-hidden="true">☷</div><div>
-<h3>Подтверждённых патчей пока нет</h3>
-<p>Разработчики не опубликовали отдельный список исправлений или версий, который можно достоверно включить в историю. Сведения о дате релиза и анонсах доступны во вкладке «События».</p>
-<a href="https://store.steampowered.com/news/app/3743260?updates=true" target="_blank" rel="noopener noreferrer">Официальная история обновлений Steam ↗</a>
-</div></div>
+<div class="releases">
+<details class="release latest" data-search="26242019 build public 27 октября 2026 steamdb windows depot 3743261 публичная сборка релиз">
+<summary><span aria-hidden="true" class="track"><span class="track-dot"></span></span>
+<time datetime="2026-10-27">27 октября 2026</time>
+<span class="release-mid"><span class="ver">Build 26242019</span><span class="release-title">Публичная сборка Steam</span></span>
+<span class="release-label">PUBLIC</span>
+<span aria-hidden="true" class="chevron"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span>
+</summary>
+<div class="release-content">
+<section class="note-block"><h4>Данные SteamDB</h4><ul>
+<li><strong>Build ID:</strong> 26242019</li>
+<li><strong>Дата и время сборки:</strong> 27 октября 2026, 11:30:27 UTC</li>
+<li><strong>Ветка:</strong> public — публичная версия Windows</li>
+<li><strong>Депо игры:</strong> 3743261</li>
+</ul></section>
+<div class="context"><strong>Что изменилось?</strong> SteamDB подтверждает публикацию сборки, но сообщает, что разработчики не приложили официальный текст изменений. Отображение депо не позволяет достоверно перечислить исправления; список изменений не выдумываем.</div>
+<div class="source-cluster">
+<a class="source-link" href="https://steamdb.info/patchnotes/26242019/" target="_blank" rel="noopener noreferrer">SteamDB · Build 26242019 ↗</a>
+<a class="source-link" href="https://steamdb.info/app/3743260/depots/" target="_blank" rel="noopener noreferrer">SteamDB · ветка public ↗</a>
 </div>
-<div class="card-foot"><span>Источник данных: Steam / официальные анонсы · Проверено 28.10.2026</span><a href="https://store.steampowered.com/news/app/3743260" target="_blank" rel="noopener noreferrer">Новости игры ↗</a></div>
+</div></details>
+</div>
+</div>
+<div class="card-foot"><span>Источники: SteamDB, Steam и официальные анонсы · Проверено 28.10.2026</span><a href="https://steamdb.info/app/3743260/patchnotes/" target="_blank" rel="noopener noreferrer">Сборки в SteamDB ↗</a></div>
 </section>
 <section class="version-card" aria-label="Источники и достоверность">
 <h2>О версиях и патчах</h2>
-<p>Дата публикации или новый билд Steam сами по себе не раскрывают список изменений. Версия <b>1.0.0</b> здесь намеренно не указывается, потому что её номер не подтверждён официальным changelog. При появлении патч-ноутов их можно добавить отдельными записями с датой, версией и ссылкой на первоисточник.</p>
-<div class="links"><a href="https://store.steampowered.com/app/3743260/Virtue_and_a_Sledgehammer/" target="_blank" rel="noopener noreferrer">Страница игры в Steam ↗</a><a href="https://store.steampowered.com/news/app/3743260?updates=true" target="_blank" rel="noopener noreferrer">Только обновления Steam ↗</a><a href="https://steamdb.info/app/3743260/patchnotes/" target="_blank" rel="noopener noreferrer">История SteamDB ↗</a></div>
+<p>Для публичной ветки Steam подтверждён <b>Build ID 26242019</b> от 27 октября 2026 года. Этот номер указывает на конкретную сборку в инфраструктуре Steam, а не на внутренний номер версии игры, например <b>1.0.0</b>. SteamDB не содержит официальных текстовых примечаний к этой сборке, поэтому её нельзя выдавать за патч с конкретными исправлениями. Сведения о новых сборках и подробные patch notes будут отображаться отдельно при наличии источников.</p>
+<div class="links"><a href="https://store.steampowered.com/app/3743260/Virtue_and_a_Sledgehammer/" target="_blank" rel="noopener noreferrer">Страница игры в Steam ↗</a><a href="https://store.steampowered.com/news/app/3743260?updates=true" target="_blank" rel="noopener noreferrer">Только обновления Steam ↗</a><a href="https://steamdb.info/app/3743260/patchnotes/" target="_blank" rel="noopener noreferrer">История SteamDB ↗</a><a href="https://steamdb.info/patchnotes/26242019/" target="_blank" rel="noopener noreferrer">Build 26242019 ↗</a></div>
 </section>
 <p class="footnote">SST Ξ NITOKIN · Неофициальный справочник по истории выхода игры. Все названия, события и торговые марки принадлежат соответствующим правообладателям.</p>
 </main>
@@ -329,12 +348,12 @@ function updateExpandText(){const shown=releases.filter(r=>!r.hidden);const expa
 function updateSearch(){
  const term=input.value.toLocaleLowerCase("ru").trim();let count=0;
  if(active==="events"){releases.forEach(r=>{r.hidden=!r.dataset.search.includes(term);if(!r.hidden)count++});empty.classList.toggle("visible",count===0);total.textContent="· "+count+" "+(count===1?"событие":count>=2&&count<=4?"события":"событий")}
- else{total.textContent="· 0 патчей"}
+ else{total.textContent="· 1 сборка"}
  updateExpandText();
 }
 function choose(name){
  active=name;Object.keys(panels).forEach(k=>{const on=k===name;panels[k].hidden=!on;tabs[k].setAttribute("aria-selected",String(on));tabs[k].tabIndex=on?0:-1});
- const eventMode=name==="events";input.disabled=!eventMode;input.placeholder=eventMode?"Найти событие или изменение…":"Для патчей пока нет записей";allButton.hidden=!eventMode;latest.textContent=eventMode?"27 окт 2026":"Нет подтверждённых";
+ const eventMode=name==="events";input.disabled=!eventMode;input.placeholder=eventMode?"Найти событие или изменение…":"Build 26242019 в SteamDB";allButton.hidden=!eventMode;latest.textContent="27 окт 2026";
  updateSearch();
 }
 tabs.events.addEventListener("click",()=>choose("events"));tabs.patches.addEventListener("click",()=>choose("patches"));
