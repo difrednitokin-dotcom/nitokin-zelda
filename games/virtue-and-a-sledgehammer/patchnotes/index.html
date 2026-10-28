@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f6f7f9">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="История обновлений и официальных анонсов Virtue and a Sledgehammer: релиз, пролог, демоверсия и будущие патчи. SST Ξ NITOKIN.">
+<meta property="og:title" content="История обновлений — Virtue and a Sledgehammer | SST Ξ NITOKIN">
+<meta property="og:description" content="История версий, патчи и основные события Virtue and a Sledgehammer. Только подтверждённые сведения.">
+<meta property="og:type" content="website">
+<title>История обновлений • Virtue and a Sledgehammer | SST Ξ NITOKIN</title>
+<style>
+
+/* NITOKIN LAB. / Patch Notes — Reference-style release card */
+:root {
+  color-scheme: light;
+  --bg:#f6f7f9; --paper:#ffffff; --ink:#1d242d; --muted:#69717d;
+  --subtle:#87909d; --line:#dedfe3; --soft:#f4f4f6; --soft2:#eceef1;
+  --brand:#b34236; --brand-hover:#8f2824; --highlight:#fff0ed;
+  --chip:#ffffff; --tag-text:#707986; --track:#e0e4e6;
+  --dot:#a9b0b9; --success:#3baf65; --success-bg:#e6f5e9;
+  --gold:#bb9b65; --shadow:0 12px 32px rgba(20,29,38,.035);
+  --input:#fff; --input-focus:#d09386; --note:#fff8e9; --note-line:#c6a66b;
+}
+html[data-theme="dark"] {
+  color-scheme:dark;
+  --bg:#141518; --paper:#1e1f22; --ink:#eff0f3; --muted:#a5a7b0;
+  --subtle:#90929c; --line:#35363b; --soft:#25262a; --soft2:#292b30;
+  --brand:#f3a096; --brand-hover:#ffbbb1; --highlight:#3d2928;
+  --chip:#25262a; --tag-text:#b8bcc4; --track:#383a40;
+  --dot:#757984; --success:#5eca81; --success-bg:#25402f;
+  --gold:#d4b78a; --shadow:0 18px 40px rgba(0,0,0,.12);
+  --input:#222428; --input-focus:#ad746d; --note:#312b23; --note-line:#b28d5e;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);font:14px/1.56 "Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;transition:background .22s,color .22s;-webkit-font-smoothing:antialiased}
+a{color:inherit}button,input{font:inherit}.shell{width:100%;max-width:900px;margin:0 auto;padding:38px 24px 85px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:32px}
+.brand{display:inline-flex;align-items:center;gap:11px;text-decoration:none;min-width:0}
+.brand-emblem{width:36px;height:36px;flex:0 0 36px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font:bold 19px Georgia,serif;background:var(--paper)}
+.brand-name{font-size:12px;font-weight:800;letter-spacing:.17em;color:var(--ink)}
+.brand-sub{font-size:9px;font-weight:700;letter-spacing:.15em;color:var(--muted)}
+.top-actions{display:flex;align-items:center;gap:9px}
+.back-link,.theme-switch{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--muted);min-height:37px;transition:background .18s,border-color .18s,color .18s}
+.back-link{padding:8px 13px;font-size:12px;font-weight:650;white-space:nowrap}
+.back-link:hover,.theme-switch:hover{border-color:var(--input-focus);color:var(--ink);background:var(--soft)}
+.theme-switch{gap:8px;padding:0 12px;cursor:pointer;font-size:12px;font-weight:650}
+.theme-switch .icon{width:16px;height:16px;display:block}
+.theme-switch .sun{display:none}html[data-theme="dark"] .theme-switch .sun{display:block}html[data-theme="dark"] .theme-switch .moon{display:none}
+.page-kicker{display:flex;align-items:center;gap:8px;color:var(--subtle);font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;margin:0 0 11px 2px}
+.page-kicker .line{width:17px;height:1px;background:var(--gold)}
+.overview{border:1px solid var(--line);border-radius:10px;background:var(--paper);overflow:hidden;box-shadow:var(--shadow);margin-bottom:26px}
+.overview-main{display:grid;grid-template-columns:minmax(0, 1fr) minmax(0, 1.35fr);align-items:center;min-height:74px;padding:0 15px}
+.overview-col{min-width:0;display:flex;gap:10px;align-items:center;padding:16px 8px}
+.overview-col+.overview-col{border-left:1px solid var(--line);padding-left:19px}
+.overview-icon{flex:0 0 19px;width:19px;height:19px;color:var(--subtle);display:block}
+.overview-copy{min-width:0}.overview-label{font-size:11px;font-weight:750;letter-spacing:.025em;line-height:1.2;color:var(--subtle);text-transform:uppercase}
+.overview-title{margin:3px 0 0;font-size:15px;font-weight:750;line-height:1.3;letter-spacing:-.012em;color:var(--ink)}
+.overview-title .nowrap{white-space:nowrap}
+.version-body{display:flex;flex-wrap:wrap;gap:3px 8px;align-items:center}
+.version-separator{color:var(--subtle);font-weight:400;margin:0 3px}
+.overview-chip{display:inline-flex;align-items:center;white-space:nowrap;border:1px solid var(--line);border-radius:4px;padding:1px 7px;font-size:10px;font-weight:800;letter-spacing:.03em;color:var(--tag-text);background:var(--chip);margin-left:6px;vertical-align:2px}
+.overview-secondary{background:var(--soft);border-top:1px solid var(--line);padding:11px 17px;display:flex;gap:10px;align-items:flex-start;color:var(--muted);font-size:12.5px;font-weight:550;line-height:1.55}
+.overview-secondary .info-icon{width:17px;height:17px;flex:none;margin-top:1px;color:var(--subtle)}
+.overview-secondary strong{font-weight:750;color:var(--ink)}.overview-secondary .divider-char{color:var(--subtle);padding:0 4px}
+.history{background:var(--paper);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);overflow:hidden}
+.card-head{padding:20px 21px 0;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.card-head h2{font-size:16px;font-weight:760;letter-spacing:-.018em;margin:0;color:var(--ink)}
+.card-head small{font-size:12px;color:var(--subtle);font-weight:600;margin-left:2px}
+.current{color:var(--subtle);font-size:11.5px}.current b{color:var(--ink);font-weight:700}
+.tabs{padding:15px 21px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--line)}
+.tab{cursor:pointer;display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:6px;background:var(--soft);padding:9px 12px;font-size:12px;font-weight:750;color:var(--muted);transition:background .15s,color .15s,border-color .15s}
+.tab:hover{border-color:var(--input-focus);color:var(--ink)}
+.tab[aria-selected="true"]{border-color:var(--input-focus);background:var(--highlight);color:var(--brand)}
+.count-pill{font-size:10px;opacity:.8;font-weight:800}
+.panel[hidden]{display:none!important}
+.tools{border-bottom:1px solid var(--line);padding:12px 21px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.search{display:block;width:100%;max-width:310px;position:relative}.search svg{width:16px;height:16px;position:absolute;left:11px;top:10px;color:var(--subtle);pointer-events:none}
+.search input{width:100%;height:36px;border:1px solid var(--line);border-radius:6px;background:var(--input);color:var(--ink);font-size:12px;outline:none;padding:0 11px 0 37px}
+.search input::placeholder{color:var(--subtle)}.search input:focus{border-color:var(--input-focus);box-shadow:0 0 0 3px color-mix(in srgb,var(--input-focus) 20%,transparent)}
+.expand-button{border:0;background:transparent;padding:6px 2px;color:var(--brand);font-size:11.5px;font-weight:700;white-space:nowrap;cursor:pointer}.expand-button:hover{text-decoration:underline}
+.releases{padding:6px 12px 10px}.release{position:relative;margin:0;border-bottom:1px solid var(--line)}.release:last-child{border-bottom:0}.release[hidden]{display:none!important}
+.release>summary{list-style:none;min-height:55px;display:flex;align-items:center;cursor:pointer;padding:0 12px 0 0;outline-offset:-3px;transition:background .15s}.release>summary::-webkit-details-marker{display:none}.release>summary:hover{background:var(--soft)}
+.track{position:relative;width:36px;flex:0 0 36px;align-self:stretch;display:flex;justify-content:center}
+.track::before{content:"";position:absolute;top:0;bottom:0;left:17px;width:2px;background:var(--track)}.release:first-child .track::before{top:50%}.release:last-child .track::before{bottom:50%}
+.track-dot{align-self:center;z-index:1;width:8px;height:8px;border-radius:50%;background:var(--dot);box-shadow:0 0 0 3px var(--paper)}
+.release.latest .track-dot{height:11px;width:11px;background:var(--success);box-shadow:0 0 0 4px var(--success-bg)}.release[open] .track-dot{background:var(--brand);box-shadow:0 0 0 4px var(--highlight)}
+.release time{flex:0 0 132px;white-space:nowrap;color:var(--subtle);font-size:11.5px;padding-left:4px}.release.latest time{font-weight:700;color:var(--brand)}
+.release-mid{flex:1;min-width:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px}.ver{font-size:12.5px;white-space:nowrap;font-weight:780;color:var(--ink)}.release.latest .ver{color:var(--brand)}
+.release-title{font-size:12px;color:var(--muted)}.latest-tag{margin-left:2px;background:var(--success-bg);color:var(--brand);border:1px solid var(--input-focus);font-size:10px;font-weight:800;padding:1px 6px;border-radius:4px}
+.chevron{margin-left:9px;flex:0 0 17px;width:17px;height:17px;color:var(--subtle);transition:transform .17s}.chevron svg{width:100%;height:100%}.release[open] .chevron{transform:rotate(180deg)}
+.release-content{margin:0 12px 0 39px;padding:0 12px 18px 134px;border-top:1px solid var(--line);animation:reveal .2s ease}
+.note-block{margin-top:16px}.note-block h4{font-size:11px;font-weight:800;color:var(--brand);margin:0 0 7px;letter-spacing:.06em;text-transform:uppercase}.note-block ul{margin:0;padding-left:18px;color:var(--muted);font-size:12.5px;line-height:1.75}.note-block li{padding:2px 0}.note-block li::marker{color:var(--brand)}
+.context{background:var(--note);border-left:3px solid var(--note-line);padding:11px 13px;margin:16px 0 5px;color:var(--muted);font-size:12px}
+.source-link{display:inline-flex;gap:6px;align-items:center;color:var(--brand);font-size:11.5px;font-weight:700;text-decoration:none;margin-top:18px}.source-link:hover{text-decoration:underline}
+.empty{display:none;text-align:center;padding:34px 8px;color:var(--subtle);font-size:12px}.empty.visible{display:block}
+.card-foot{border-top:1px solid var(--line);background:var(--soft);padding:13px 20px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:10.5px;color:var(--subtle)}.card-foot a{color:var(--brand);text-decoration:none}.card-foot a:hover{text-decoration:underline}
+.footnote{color:var(--subtle);font-size:11.5px;line-height:1.65;text-align:center;margin:22px 7px 0}
+@keyframes reveal{from{opacity:.25;transform:translateY(-3px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:700px){.shell{padding:25px 13px 65px}.topbar{margin-bottom:23px}.page-kicker{margin-bottom:10px}.overview-main{grid-template-columns:1fr}.overview-col{padding:14px 5px}.overview-col+.overview-col{border-top:1px solid var(--line);border-left:0;padding-left:5px}.overview-title{font-size:14px}.card-head{padding:16px 15px 0}.tabs{padding:13px 15px}.tools{padding:10px 15px}.releases{padding:4px 8px 10px}.release>summary{min-height:56px;padding-right:7px}.track{width:29px;flex-basis:29px}.track::before{left:13px}.release time{flex-basis:100px;white-space:normal;line-height:1.3;font-size:10px;padding-left:2px}.release-mid{gap:4px 7px}.release-title{flex-basis:100%;font-size:11px;line-height:1.35}.ver{font-size:11.5px}.latest-tag{font-size:9px;padding:1px 4px}.chevron{width:15px;flex-basis:15px;margin-left:5px}.release-content{margin-left:30px;margin-right:6px;padding:0 5px 16px 11px}.note-block ul{padding-left:16px;font-size:12px}.footnote{font-size:10.5px}}
+@media(max-width:395px){.shell{padding:18px 10px 55px}.brand-sub{display:none}.brand-name{font-size:10px}.theme-switch{padding:0 10px}.theme-text{display:none}.back-link{font-size:11px;padding:8px}.release time{flex-basis:81px}.current{display:none}.tabs .tab{flex:1;justify-content:center}.overview-secondary{font-size:11.5px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+
+
+
+
+/* NITOKIN LAB. / Patch Notes — Reference-style release card */
+:root {
+  color-scheme: light;
+  --bg:#f6f7f9; --paper:#ffffff; --ink:#1d242d; --muted:#69717d;
+  --subtle:#87909d; --line:#dedfe3; --soft:#f4f4f6; --soft2:#eceef1;
+  --brand:#2f6357; --brand-hover:#184c42; --highlight:#eaf3ee;
+  --chip:#ffffff; --tag-text:#707986; --track:#e0e4e6;
+  --dot:#a9b0b9; --success:#3baf65; --success-bg:#e6f5e9;
+  --gold:#bb9b65; --shadow:0 12px 32px rgba(20,29,38,.035);
+  --input:#fff; --input-focus:#86ab9f; --note:#fff8e9; --note-line:#c6a66b;
+}
+html[data-theme="dark"] {
+  color-scheme:dark;
+  --bg:#141518; --paper:#1e1f22; --ink:#eff0f3; --muted:#a5a7b0;
+  --subtle:#90929c; --line:#35363b; --soft:#25262a; --soft2:#292b30;
+  --brand:#98c4b1; --brand-hover:#c1e4d4; --highlight:#243b34;
+  --chip:#25262a; --tag-text:#b8bcc4; --track:#383a40;
+  --dot:#757984; --success:#5eca81; --success-bg:#25402f;
+  --gold:#d4b78a; --shadow:0 18px 40px rgba(0,0,0,.12);
+  --input:#222428; --input-focus:#699888; --note:#312b23; --note-line:#b28d5e;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);font:14px/1.56 "Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;transition:background .22s,color .22s;-webkit-font-smoothing:antialiased}
+a{color:inherit}button,input{font:inherit}.shell{width:100%;max-width:900px;margin:0 auto;padding:38px 24px 85px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:32px}
+.brand{display:inline-flex;align-items:center;gap:11px;text-decoration:none;min-width:0}
+.brand-emblem{width:36px;height:36px;flex:0 0 36px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font:bold 19px Georgia,serif;background:var(--paper)}
+.brand-name{font-size:12px;font-weight:800;letter-spacing:.17em;color:var(--ink)}
+.brand-sub{font-size:9px;font-weight:700;letter-spacing:.15em;color:var(--muted)}
+.top-actions{display:flex;align-items:center;gap:9px}
+.back-link,.theme-switch{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--muted);min-height:37px;transition:background .18s,border-color .18s,color .18s}
+.back-link{padding:8px 13px;font-size:12px;font-weight:650;white-space:nowrap}
+.back-link:hover,.theme-switch:hover{border-color:var(--input-focus);color:var(--ink);background:var(--soft)}
+.theme-switch{gap:8px;padding:0 12px;cursor:pointer;font-size:12px;font-weight:650}
+.theme-switch .icon{width:16px;height:16px;display:block}
+.theme-switch .sun{display:none}html[data-theme="dark"] .theme-switch .sun{display:block}html[data-theme="dark"] .theme-switch .moon{display:none}
+.page-kicker{display:flex;align-items:center;gap:8px;color:var(--subtle);font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;margin:0 0 11px 2px}
+.page-kicker .line{width:17px;height:1px;background:var(--gold)}
+.overview{border:1px solid var(--line);border-radius:10px;background:var(--paper);overflow:hidden;box-shadow:var(--shadow);margin-bottom:26px}
+.overview-main{display:grid;grid-template-columns:minmax(0, 1fr) minmax(0, 1.35fr);align-items:center;min-height:74px;padding:0 15px}
+.overview-col{min-width:0;display:flex;gap:10px;align-items:center;padding:16px 8px}
+.overview-col+.overview-col{border-left:1px solid var(--line);padding-left:19px}
+.overview-icon{flex:0 0 19px;width:19px;height:19px;color:var(--subtle);display:block}
+.overview-copy{min-width:0}.overview-label{font-size:11px;font-weight:750;letter-spacing:.025em;line-height:1.2;color:var(--subtle);text-transform:uppercase}
+.overview-title{margin:3px 0 0;font-size:15px;font-weight:750;line-height:1.3;letter-spacing:-.012em;color:var(--ink)}
+.overview-title .nowrap{white-space:nowrap}
+.version-body{display:flex;flex-wrap:wrap;gap:3px 8px;align-items:center}
+.version-separator{color:var(--subtle);font-weight:400;margin:0 3px}
+.overview-chip{display:inline-flex;align-items:center;white-space:nowrap;border:1px solid var(--line);border-radius:4px;padding:1px 7px;font-size:10px;font-weight:800;letter-spacing:.03em;color:var(--tag-text);background:var(--chip);margin-left:6px;vertical-align:2px}
+.overview-secondary{background:var(--soft);border-top:1px solid var(--line);padding:11px 17px;display:flex;gap:10px;align-items:flex-start;color:var(--muted);font-size:12.5px;font-weight:550;line-height:1.55}
+.overview-secondary .info-icon{width:17px;height:17px;flex:none;margin-top:1px;color:var(--subtle)}
+.overview-secondary strong{font-weight:750;color:var(--ink)}.overview-secondary .divider-char{color:var(--subtle);padding:0 4px}
+.history{background:var(--paper);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);overflow:hidden}
+.card-head{padding:20px 21px 0;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.card-head h2{font-size:16px;font-weight:760;letter-spacing:-.018em;margin:0;color:var(--ink)}
+.card-head small{font-size:12px;color:var(--subtle);font-weight:600;margin-left:2px}
+.current{color:var(--subtle);font-size:11.5px}.current b{color:var(--ink);font-weight:700}
+.tabs{padding:15px 21px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--line)}
+.tab{cursor:pointer;display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:6px;background:var(--soft);padding:9px 12px;font-size:12px;font-weight:750;color:var(--muted);transition:background .15s,color .15s,border-color .15s}
+.tab:hover{border-color:var(--input-focus);color:var(--ink)}
+.tab[aria-selected="true"]{border-color:var(--input-focus);background:var(--highlight);color:var(--brand)}
+.count-pill{font-size:10px;opacity:.8;font-weight:800}
+.panel[hidden]{display:none!important}
+.tools{border-bottom:1px solid var(--line);padding:12px 21px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.search{display:block;width:100%;max-width:310px;position:relative}.search svg{width:16px;height:16px;position:absolute;left:11px;top:10px;color:var(--subtle);pointer-events:none}
+.search input{width:100%;height:36px;border:1px solid var(--line);border-radius:6px;background:var(--input);color:var(--ink);font-size:12px;outline:none;padding:0 11px 0 37px}
+.search input::placeholder{color:var(--subtle)}.search input:focus{border-color:var(--input-focus);box-shadow:0 0 0 3px color-mix(in srgb,var(--input-focus) 20%,transparent)}
+.expand-button{border:0;background:transparent;padding:6px 2px;color:var(--brand);font-size:11.5px;font-weight:700;white-space:nowrap;cursor:pointer}.expand-button:hover{text-decoration:underline}
+.releases{padding:6px 12px 10px}.release{position:relative;margin:0;border-bottom:1px solid var(--line)}.release:last-child{border-bottom:0}.release[hidden]{display:none!important}
+.release>summary{list-style:none;min-height:55px;display:flex;align-items:center;cursor:pointer;padding:0 12px 0 0;outline-offset:-3px;transition:background .15s}.release>summary::-webkit-details-marker{display:none}.release>summary:hover{background:var(--soft)}
+.track{position:relative;width:36px;flex:0 0 36px;align-self:stretch;display:flex;justify-content:center}
+.track::before{content:"";position:absolute;top:0;bottom:0;left:17px;width:2px;background:var(--track)}.release:first-child .track::before{top:50%}.release:last-child .track::before{bottom:50%}
+.track-dot{align-self:center;z-index:1;width:8px;height:8px;border-radius:50%;background:var(--dot);box-shadow:0 0 0 3px var(--paper)}
+.release.latest .track-dot{height:11px;width:11px;background:var(--success);box-shadow:0 0 0 4px var(--success-bg)}.release[open] .track-dot{background:var(--brand);box-shadow:0 0 0 4px var(--highlight)}
+.release time{flex:0 0 132px;white-space:nowrap;color:var(--subtle);font-size:11.5px;padding-left:4px}.release.latest time{font-weight:700;color:var(--brand)}
+.release-mid{flex:1;min-width:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px}.ver{font-size:12.5px;white-space:nowrap;font-weight:780;color:var(--ink)}.release.latest .ver{color:var(--brand)}
+.release-title{font-size:12px;color:var(--muted)}.latest-tag{margin-left:2px;background:var(--success-bg);color:var(--brand);border:1px solid var(--input-focus);font-size:10px;font-weight:800;padding:1px 6px;border-radius:4px}
+.chevron{margin-left:9px;flex:0 0 17px;width:17px;height:17px;color:var(--subtle);transition:transform .17s}.chevron svg{width:100%;height:100%}.release[open] .chevron{transform:rotate(180deg)}
+.release-content{margin:0 12px 0 39px;padding:0 12px 18px 134px;border-top:1px solid var(--line);animation:reveal .2s ease}
+.note-block{margin-top:16px}.note-block h4{font-size:11px;font-weight:800;color:var(--brand);margin:0 0 7px;letter-spacing:.06em;text-transform:uppercase}.note-block ul{margin:0;padding-left:18px;color:var(--muted);font-size:12.5px;line-height:1.75}.note-block li{padding:2px 0}.note-block li::marker{color:var(--brand)}
+.context{background:var(--note);border-left:3px solid var(--note-line);padding:11px 13px;margin:16px 0 5px;color:var(--muted);font-size:12px}
+.source-link{display:inline-flex;gap:6px;align-items:center;color:var(--brand);font-size:11.5px;font-weight:700;text-decoration:none;margin-top:18px}.source-link:hover{text-decoration:underline}
+.empty{display:none;text-align:center;padding:34px 8px;color:var(--subtle);font-size:12px}.empty.visible{display:block}
+.card-foot{border-top:1px solid var(--line);background:var(--soft);padding:13px 20px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:10.5px;color:var(--subtle)}.card-foot a{color:var(--brand);text-decoration:none}.card-foot a:hover{text-decoration:underline}
+.footnote{color:var(--subtle);font-size:11.5px;line-height:1.65;text-align:center;margin:22px 7px 0}
+@keyframes reveal{from{opacity:.25;transform:translateY(-3px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:700px){.shell{padding:25px 13px 65px}.topbar{margin-bottom:23px}.page-kicker{margin-bottom:10px}.overview-main{grid-template-columns:1fr}.overview-col{padding:14px 5px}.overview-col+.overview-col{border-top:1px solid var(--line);border-left:0;padding-left:5px}.overview-title{font-size:14px}.card-head{padding:16px 15px 0}.tabs{padding:13px 15px}.tools{padding:10px 15px}.releases{padding:4px 8px 10px}.release>summary{min-height:56px;padding-right:7px}.track{width:29px;flex-basis:29px}.track::before{left:13px}.release time{flex-basis:100px;white-space:normal;line-height:1.3;font-size:10px;padding-left:2px}.release-mid{gap:4px 7px}.release-title{flex-basis:100%;font-size:11px;line-height:1.35}.ver{font-size:11.5px}.latest-tag{font-size:9px;padding:1px 4px}.chevron{width:15px;flex-basis:15px;margin-left:5px}.release-content{margin-left:30px;margin-right:6px;padding:0 5px 16px 11px}.note-block ul{padding-left:16px;font-size:12px}.footnote{font-size:10.5px}}
+@media(max-width:395px){.shell{padding:18px 10px 55px}.brand-sub{display:none}.brand-name{font-size:10px}.theme-switch{padding:0 10px}.theme-text{display:none}.back-link{font-size:11px;padding:8px}.release time{flex-basis:81px}.current{display:none}.tabs .tab{flex:1;justify-content:center}.overview-secondary{font-size:11.5px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+
+</style>
+<script>
+(function(){
+  var stored=null;
+  try{stored=localStorage.getItem('nitokin-patch-theme')}catch(e){}
+  document.documentElement.setAttribute('data-theme',stored==='dark'?'dark':'light');
+})();
+</script>
+<style>
+
+/* SST Ξ NITOKIN — compact monochrome logo aligned with the site's UI icons */
+.brand.sst-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  flex: 0 1 auto;
+  white-space: nowrap;
+  color: var(--ink);
+  text-decoration: none;
+}
+.sst-brand .brand-mark {
+  display: block;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  color: var(--muted);
+  background: none;
+  border: none;
+  box-shadow: none;
+  filter: none;
+  transition: color .18s ease;
+}
+.sst-brand:hover .brand-mark { color: var(--brand); transform: none; filter: none; }
+.sst-brand .brand-name {
+  display: inline-flex;
+  align-items: center;
+  gap: .23em;
+  white-space: nowrap;
+  font-family: "Segoe UI Variable Display", "Segoe UI", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -.025em;
+  color: var(--ink);
+}
+.sst-brand .brand-xi {
+  display: inline;
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  color: #9467d9;
+  font-size: 1.05em;
+  font-weight: 850;
+  line-height: 1;
+  margin: 0 .01em;
+}
+html[data-theme="dark"] .sst-brand .brand-xi { color: #bc9af4; }
+.sst-brand:focus-visible { outline: 2px solid var(--input-focus); outline-offset: 4px; border-radius: 4px; }
+@media (max-width: 700px) {
+  .brand.sst-brand { gap: 8px; }
+  .sst-brand .brand-mark { width: 29px; height: 29px; flex-basis: 29px; }
+  .sst-brand .brand-name { font-size: 14px; }
+}
+@media (max-width: 405px) {
+  .brand.sst-brand { gap: 6px; }
+  .sst-brand .brand-mark { width: 27px; height: 27px; flex-basis: 27px; }
+  .sst-brand .brand-name { font-size: 13px; }
+}
+
+
+
+/* Virtue page additions */
+.release-label{font-size:10px;border:1px solid var(--line);border-radius:4px;padding:2px 7px;background:var(--soft);font-weight:800;color:var(--muted);white-space:nowrap}
+.release.latest .release-label{background:var(--highlight);color:var(--brand);border-color:var(--input-focus)}
+.status-line{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.status-dot{width:7px;height:7px;border-radius:50%;background:var(--success);display:inline-block;flex:none}
+.status-card{padding:24px 24px 27px;min-height:210px;display:flex;align-items:center;gap:18px}
+.status-icon{width:46px;height:46px;flex:none;border:1px solid var(--line);border-radius:12px;background:var(--soft);display:grid;place-items:center;color:var(--brand);font-size:24px}
+.status-card h3{font-size:15px;letter-spacing:-.02em;margin:0 0 7px}
+.status-card p{font-size:12px;color:var(--muted);line-height:1.75;margin:0 0 8px}
+.status-card a{font-size:11.5px;font-weight:750;text-decoration:none;color:var(--brand)}.status-card a:hover{text-decoration:underline}
+.summary-note{padding:17px 20px;border:1px solid var(--line);border-left:3px solid var(--gold);background:var(--note);border-radius:8px;margin:0 0 18px;line-height:1.75;color:var(--muted);font-size:12px}
+.summary-note strong{color:var(--ink)}
+.release-content p{font-size:12.5px;color:var(--muted);line-height:1.8;margin:14px 0 0}
+.release-content .source-link{margin-right:13px}
+.source-cluster{display:flex;flex-wrap:wrap;align-items:center;gap:4px 13px}
+.version-card{padding:19px 21px;margin-top:23px;border:1px solid var(--line);border-radius:9px;background:var(--paper)}
+.version-card h2{font-size:14px;margin:0 0 9px}
+.version-card p{font-size:12px;line-height:1.75;color:var(--muted);margin:0}
+.version-card a{color:var(--brand);font-weight:700}
+.version-card .links{display:flex;flex-wrap:wrap;gap:9px 20px;margin-top:11px;font-size:11.5px}
+.sitefoot{padding:25px 8px 0;color:var(--subtle);font-size:11px;line-height:1.8;text-align:center}
+.sitefoot a{color:var(--brand)}
+.tab:focus-visible,.expand-button:focus-visible{outline:2px solid var(--input-focus);outline-offset:3px}
+@media(max-width:700px){.status-card{padding:21px 16px;align-items:flex-start;min-height:0}.status-icon{width:37px;height:37px;font-size:19px}.version-card{padding:17px}.overview-secondary{font-size:12px}}
+
+</style>
+<script>(function(){var x="light";try{x=localStorage.getItem("nitokin-patch-theme")==="dark"?"dark":"light"}catch(e){}document.documentElement.setAttribute("data-theme",x)})()</script>
+</head>
+<body>
+<main class="shell">
+<header class="topbar">
+<a aria-label="SST Ξ NITOKIN — Страница игры" class="brand sst-brand" href="../">
+<svg aria-hidden="true" class="brand-mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+<path d="M23 25.5v-4.2C23 14.6 27.3 11 32 11s9 3.6 9 10.3v4.2" fill="currentColor"/>
+<path d="M15.5 27.5c5-2.4 10.5-3.4 16.5-3.4s11.5 1 16.5 3.4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="4.7"/>
+<path d="M10.7 35h7M46.3 35h7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="3.6"/>
+<circle cx="24" cy="35.5" r="6.7" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="40" cy="35.5" r="6.7" fill="none" stroke="currentColor" stroke-width="4"/>
+<path d="M30.8 35.4c.8-1 1.7-1 2.5 0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="3"/>
+<path d="M23.8 44.2C26.6 47.3 29.5 51.1 32 55c2.5-3.9 5.4-7.7 8.2-10.8-5 2.4-11.4 2.4-16.4 0Z" fill="currentColor"/>
+</svg><span class="brand-name">SST <span class="brand-xi">Ξ</span> NITOKIN</span></a>
+<div class="top-actions">
+<button aria-label="Переключить цветовую тему" class="theme-switch" id="theme-switch" type="button" title="Переключить цветовую тему">
+<svg aria-hidden="true" class="icon moon" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.6 15.4A9 9 0 0 1 8.6 3.4 9 9 0 1 0 20.6 15.4Z"/></svg>
+<svg aria-hidden="true" class="icon sun" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+<span class="theme-text" id="theme-text">Тёмная тема</span>
+</button>
+<a class="back-link" href="../">← К игре</a>
+</div>
+</header>
+<div class="page-kicker"><span class="line"></span> Информация о релизе <span class="line"></span></div>
+<section aria-label="Информация об игре" class="overview">
+<div class="overview-main">
+<div class="overview-col">
+<svg aria-hidden="true" class="overview-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.7" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 11h8m-8 4h6m-6-8h8"/></svg>
+<div class="overview-copy"><div class="overview-label">Тип релиза</div><h1 class="overview-title">Оригинальная игра <span class="overview-chip">PC</span></h1></div>
+</div>
+<div class="overview-col">
+<svg aria-hidden="true" class="overview-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.7" viewBox="0 0 24 24"><circle cx="6" cy="4" r="2"/><circle cx="6" cy="20" r="2"/><circle cx="18" cy="6" r="2"/><path d="M6 6v12m0-8c0-3 4-4 10-4"/></svg>
+<div class="overview-copy"><div class="overview-label">Выпуск / номер версии</div><div class="overview-title version-body"><span class="nowrap">27.10.2026</span><span class="version-separator">|</span><span>Номер версии не опубликован</span></div></div>
+</div>
+</div>
+<div class="overview-secondary">
+<svg aria-hidden="true" class="info-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8h.01"/></svg>
+<div><strong>Virtue and a Sledgehammer</strong><span class="divider-char"> | </span>История анонсов, релиза и подтверждённых обновлений. Информация из Steam и заявлений разработчиков.</div>
+</div>
+</section>
+<div class="summary-note"><strong>Статус на 28 октября 2026.</strong> Игра вышла 27 октября. Отдельных официальных патч-ноутов с номерами версий и перечнями исправлений в проверенных источниках пока не обнаружено. Ниже представлены подтверждённые этапы выхода — это <strong>не патчи</strong> установленной игры.</div>
+<section class="history" aria-labelledby="history-title">
+<div class="card-head"><h2 id="history-title">История изменений <small id="total-label">· 5 событий</small></h2><span class="current">Последняя запись: <b id="latest-date">27 окт 2026</b></span></div>
+<div class="tabs" role="tablist" aria-label="Выбор истории">
+<button class="tab" id="tab-events" role="tab" aria-controls="panel-events" aria-selected="true" type="button">События <span class="count-pill">5</span></button>
+<button class="tab" id="tab-patches" role="tab" aria-controls="panel-patches" aria-selected="false" type="button">Патчи <span class="count-pill">0</span></button>
+</div>
+<div class="tools">
+<label class="search"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg><input aria-label="Поиск по событиям" id="search" placeholder="Найти событие или изменение…" type="search" autocomplete="off"></label>
+<button id="toggle-open" class="expand-button" type="button">Развернуть все</button>
+</div>
+<div id="panel-events" class="panel" role="tabpanel" aria-labelledby="tab-events"><div class="releases">
+<details class="release latest" data-search="2026-10-27 27 октября 2026 релиз игры на пк релиз virtue and a sledgehammer вышла в steam запуск игры полная версия вышла на windows 27 октября 2026 года. в центре игры — исследование родного города, разрушаемое окружение, противостояние андроидам и сюжет о семье и воспоминаниях. игра доступна на русском языке (интерфейс и субтитры)." open>
+<summary><span aria-hidden="true" class="track"><span class="track-dot"></span></span>
+<time datetime="2026-10-27">27 октября 2026</time>
+<span class="release-mid"><span class="ver">Релиз игры на ПК</span><span class="release-title">Virtue and a Sledgehammer вышла в Steam</span></span>
+<span class="release-label">Релиз</span>
+<span aria-hidden="true" class="chevron"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+<div class="release-content">
+<section class="note-block"><h4>Запуск игры</h4><ul><li>Полная версия вышла на Windows 27 октября 2026 года.</li><li>В центре игры — исследование родного города, разрушаемое окружение, противостояние андроидам и сюжет о семье и воспоминаниях.</li><li>Игра доступна на русском языке (интерфейс и субтитры).</li></ul></section>
+<div class="source-cluster"><a class="source-link" href="https://store.steampowered.com/app/3743260/Virtue_and_a_Sledgehammer/" target="_blank" rel="noopener noreferrer">Steam <span aria-hidden="true">↗</span></a><a class="source-link" href="https://www.gamespress.com/Virtue-and-a-Sledgehammer-Der-Simulator-fur-gewaltsame-Katharsis-ist-a" target="_blank" rel="noopener noreferrer">Анонс издателя <span aria-hidden="true">↗</span></a></div>
+</div></details>
+<details class="release " data-search="2026-10-22 22 октября 2026 virtue: prologue анонс вышел бесплатный интерактивный пролог предрелизный материал разработчики представили virtue: prologue — бесплатную короткую интерактивную историю, знакомящую с персонажами и темами основной игры. пролог опубликован в преддверии релиза 27 октября; это отдельная история, а не обновление установленной игры." >
+<summary><span aria-hidden="true" class="track"><span class="track-dot"></span></span>
+<time datetime="2026-10-22">22 октября 2026</time>
+<span class="release-mid"><span class="ver">Virtue: Prologue</span><span class="release-title">Вышел бесплатный интерактивный пролог</span></span>
+<span class="release-label">Анонс</span>
+<span aria-hidden="true" class="chevron"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+<div class="release-content">
+<section class="note-block"><h4>Предрелизный материал</h4><ul><li>Разработчики представили Virtue: Prologue — бесплатную короткую интерактивную историю, знакомящую с персонажами и темами основной игры.</li><li>Пролог опубликован в преддверии релиза 27 октября; это отдельная история, а не обновление установленной игры.</li></ul></section>
+<div class="source-cluster"><a class="source-link" href="https://store.steampowered.com/news/app/3743260" target="_blank" rel="noopener noreferrer">Новости игры в Steam <span aria-hidden="true">↗</span></a></div>
+</div></details>
+<details class="release " data-search="2026-09-20 20 сентября 2026 дата выхода анонс объявлена дата выхода — 27 октября объявление deconstructeam и selkie harbour подтвердили дату выхода полной версии — 27 октября 2026 года. авторы отметили, что демоверсия показывает лишь начало игры, а полная история будет более масштабной и эмоционально напряжённой." >
+<summary><span aria-hidden="true" class="track"><span class="track-dot"></span></span>
+<time datetime="2026-09-20">20 сентября 2026</time>
+<span class="release-mid"><span class="ver">Дата выхода</span><span class="release-title">Объявлена дата выхода — 27 октября</span></span>
+<span class="release-label">Анонс</span>
+<span aria-hidden="true" class="chevron"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+<div class="release-content">
+<section class="note-block"><h4>Объявление</h4><ul><li>Deconstructeam и Selkie Harbour подтвердили дату выхода полной версии — 27 октября 2026 года.</li><li>Авторы отметили, что демоверсия показывает лишь начало игры, а полная история будет более масштабной и эмоционально напряжённой.</li></ul></section>
+<div class="source-cluster"><a class="source-link" href="https://steamcommunity.com/app/3743260/" target="_blank" rel="noopener noreferrer">Сообщество Steam <span aria-hidden="true">↗</span></a></div>
+</div></details>
+<details class="release " data-search="2026-06-07 7 июня 2026 демоверсия демо опубликована первая играбельная демоверсия пробная версия открыт доступ к демо virtue and a sledgehammer. демоверсия даёт пройти примерно первые 30 минут игры и познакомиться с основными механиками. разработчики пригласили игроков делиться впечатлениями перед финальным этапом разработки." >
+<summary><span aria-hidden="true" class="track"><span class="track-dot"></span></span>
+<time datetime="2026-06-07">7 июня 2026</time>
+<span class="release-mid"><span class="ver">Демоверсия</span><span class="release-title">Опубликована первая играбельная демоверсия</span></span>
+<span class="release-label">Демо</span>
+<span aria-hidden="true" class="chevron"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+<div class="release-content">
+<section class="note-block"><h4>Пробная версия</h4><ul><li>Открыт доступ к демо Virtue and a Sledgehammer.</li><li>Демоверсия даёт пройти примерно первые 30 минут игры и познакомиться с основными механиками.</li><li>Разработчики пригласили игроков делиться впечатлениями перед финальным этапом разработки.</li></ul></section>
+<div class="source-cluster"><a class="source-link" href="https://steamcommunity.com/app/3743260/" target="_blank" rel="noopener noreferrer">Анонс демоверсии <span aria-hidden="true">↗</span></a><a class="source-link" href="https://store.steampowered.com/app/3743260/Virtue_and_a_Sledgehammer/" target="_blank" rel="noopener noreferrer">Страница игры <span aria-hidden="true">↗</span></a></div>
+</div></details>
+<details class="release " data-search="2025-12-11 11 декабря 2025 первый анонс анонс официально представлена virtue and a sledgehammer первая информация deconstructeam и selkie harbour представили сюжетную игру об исследовании родного города с возможностью разрушать окружение кувалдой. авторы рассказали о сочетании исследования, боёв, экологического повествования и интерактивной прозы." >
+<summary><span aria-hidden="true" class="track"><span class="track-dot"></span></span>
+<time datetime="2025-12-11">11 декабря 2025</time>
+<span class="release-mid"><span class="ver">Первый анонс</span><span class="release-title">Официально представлена Virtue and a Sledgehammer</span></span>
+<span class="release-label">Анонс</span>
+<span aria-hidden="true" class="chevron"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+<div class="release-content">
+<section class="note-block"><h4>Первая информация</h4><ul><li>Deconstructeam и Selkie Harbour представили сюжетную игру об исследовании родного города с возможностью разрушать окружение кувалдой.</li><li>Авторы рассказали о сочетании исследования, боёв, экологического повествования и интерактивной прозы.</li></ul></section>
+<div class="source-cluster"><a class="source-link" href="https://steamcommunity.com/app/274290/announcements/" target="_blank" rel="noopener noreferrer">Оригинальный анонс в Steam <span aria-hidden="true">↗</span></a></div>
+</div></details>
+<div class="empty" id="search-empty" role="status">Ничего не найдено. Попробуй другой запрос.</div>
+</div></div>
+<div id="panel-patches" class="panel" role="tabpanel" aria-labelledby="tab-patches" hidden>
+<div class="status-card"><div class="status-icon" aria-hidden="true">☷</div><div>
+<h3>Подтверждённых патчей пока нет</h3>
+<p>Разработчики не опубликовали отдельный список исправлений или версий, который можно достоверно включить в историю. Сведения о дате релиза и анонсах доступны во вкладке «События».</p>
+<a href="https://store.steampowered.com/news/app/3743260?updates=true" target="_blank" rel="noopener noreferrer">Официальная история обновлений Steam ↗</a>
+</div></div>
+</div>
+<div class="card-foot"><span>Источник данных: Steam / официальные анонсы · Проверено 28.10.2026</span><a href="https://store.steampowered.com/news/app/3743260" target="_blank" rel="noopener noreferrer">Новости игры ↗</a></div>
+</section>
+<section class="version-card" aria-label="Источники и достоверность">
+<h2>О версиях и патчах</h2>
+<p>Дата публикации или новый билд Steam сами по себе не раскрывают список изменений. Версия <b>1.0.0</b> здесь намеренно не указывается, потому что её номер не подтверждён официальным changelog. При появлении патч-ноутов их можно добавить отдельными записями с датой, версией и ссылкой на первоисточник.</p>
+<div class="links"><a href="https://store.steampowered.com/app/3743260/Virtue_and_a_Sledgehammer/" target="_blank" rel="noopener noreferrer">Страница игры в Steam ↗</a><a href="https://store.steampowered.com/news/app/3743260?updates=true" target="_blank" rel="noopener noreferrer">Только обновления Steam ↗</a><a href="https://steamdb.info/app/3743260/patchnotes/" target="_blank" rel="noopener noreferrer">История SteamDB ↗</a></div>
+</section>
+<p class="footnote">SST Ξ NITOKIN · Неофициальный справочник по истории выхода игры. Все названия, события и торговые марки принадлежат соответствующим правообладателям.</p>
+</main>
+<script>
+(function(){
+const root=document.documentElement,theme=document.getElementById("theme-switch"),themeText=document.getElementById("theme-text");
+function syncTheme(){const dark=root.getAttribute("data-theme")==="dark";themeText.textContent=dark?"Светлая тема":"Тёмная тема";theme.setAttribute("aria-label",dark?"Включить светлую тему":"Включить тёмную тему");const m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute("content",dark?"#141518":"#f6f7f9")}
+theme.addEventListener("click",function(){const next=root.getAttribute("data-theme")==="dark"?"light":"dark";root.setAttribute("data-theme",next);try{localStorage.setItem("nitokin-patch-theme",next)}catch(e){}syncTheme()});syncTheme();
+const panels={events:document.getElementById("panel-events"),patches:document.getElementById("panel-patches")};
+const tabs={events:document.getElementById("tab-events"),patches:document.getElementById("tab-patches")};
+const releases=Array.from(panels.events.querySelectorAll("details.release"));
+const input=document.getElementById("search"),allButton=document.getElementById("toggle-open"),empty=document.getElementById("search-empty");
+const total=document.getElementById("total-label"),latest=document.getElementById("latest-date");
+let active="events";
+function updateExpandText(){const shown=releases.filter(r=>!r.hidden);const expanded=shown.length>0&&shown.every(r=>r.open);allButton.textContent=expanded?"Свернуть все":"Развернуть все"}
+function updateSearch(){
+ const term=input.value.toLocaleLowerCase("ru").trim();let count=0;
+ if(active==="events"){releases.forEach(r=>{r.hidden=!r.dataset.search.includes(term);if(!r.hidden)count++});empty.classList.toggle("visible",count===0);total.textContent="· "+count+" "+(count===1?"событие":count>=2&&count<=4?"события":"событий")}
+ else{total.textContent="· 0 патчей"}
+ updateExpandText();
+}
+function choose(name){
+ active=name;Object.keys(panels).forEach(k=>{const on=k===name;panels[k].hidden=!on;tabs[k].setAttribute("aria-selected",String(on));tabs[k].tabIndex=on?0:-1});
+ const eventMode=name==="events";input.disabled=!eventMode;input.placeholder=eventMode?"Найти событие или изменение…":"Для патчей пока нет записей";allButton.hidden=!eventMode;latest.textContent=eventMode?"27 окт 2026":"Нет подтверждённых";
+ updateSearch();
+}
+tabs.events.addEventListener("click",()=>choose("events"));tabs.patches.addEventListener("click",()=>choose("patches"));
+Object.keys(tabs).forEach(k=>tabs[k].addEventListener("keydown",e=>{if(e.key!=="ArrowRight"&&e.key!=="ArrowLeft")return;e.preventDefault();const next=k==="events"?"patches":"events";choose(next);tabs[next].focus()}));
+input.addEventListener("input",updateSearch);
+allButton.addEventListener("click",()=>{const shown=releases.filter(r=>!r.hidden),needOpen=shown.some(r=>!r.open);shown.forEach(r=>r.open=needOpen);updateExpandText()});
+releases.forEach(r=>r.addEventListener("toggle",updateExpandText));
+choose("events");
+})();
+</script>
+</body></html>
