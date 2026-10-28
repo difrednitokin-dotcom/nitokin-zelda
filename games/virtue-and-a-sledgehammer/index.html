@@ -41,6 +41,30 @@ html[data-theme="dark"]{color-scheme:dark;--bg:#141518;--paper:#1f2023;--ink:#f0
 .compact-gallery.gallery .shot:hover img{transform:scale(1.035)}
 @media(max-width:650px){.compact-gallery.gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}}
 @media(max-width:440px){.compact-gallery.gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}}
+
+/* Compact feature carousel. Desktop keeps the four-card grid. */
+.features.feature-carousel{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.features.feature-carousel .feature{min-width:0;min-height:0;padding:16px;border-radius:10px}
+.features.feature-carousel .feature-icon{width:27px;height:27px;margin-bottom:10px;font-size:16px}
+.features.feature-carousel .feature h3{font-size:12.5px;margin:0 0 5px}
+.features.feature-carousel .feature p{font-size:11.5px;line-height:1.6;margin:0}
+.feature-carousel-tools{display:none}
+.features-footnote{font-size:11px;color:var(--subtle);margin:10px 2px 0;line-height:1.55}
+@media(max-width:700px){
+  .feature-carousel-tools{display:flex;align-items:center;justify-content:space-between;gap:9px;margin:-1px 0 10px}
+  .feature-swipe-hint{font-size:11px;color:var(--subtle);line-height:1.3}
+  .feature-carousel-buttons{display:flex;align-items:center;gap:8px}
+  .feature-arrow{width:32px;height:32px;display:grid;place-items:center;padding:0;border:1px solid var(--line);border-radius:7px;background:var(--paper);color:var(--ink);font-size:23px;line-height:1;cursor:pointer}
+  .feature-arrow:disabled{opacity:.4;cursor:default}
+  .feature-page{min-width:36px;color:var(--muted);font-weight:750;font-size:11px;text-align:center;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .features.feature-carousel{display:flex;flex-wrap:nowrap;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:1px;overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:1px 1px 5px}
+  .features.feature-carousel::-webkit-scrollbar{display:none}
+  .features.feature-carousel .feature{flex:0 0 clamp(214px,76vw,285px);width:auto;max-width:none;min-height:0;scroll-snap-align:start;padding:14px 15px;display:flex;flex-direction:column}
+  .features.feature-carousel .feature-icon{width:26px;height:26px;flex:none;margin-bottom:10px;font-size:15px}
+  .features.feature-carousel .feature h3{font-size:13px;line-height:1.3;margin:0 0 6px}
+  .features.feature-carousel .feature p{font-size:11.5px;line-height:1.52;margin:0}
+  .features-footnote{margin-top:7px;font-size:10.5px}
+}
 </style>
 </head>
 <body>
@@ -127,13 +151,21 @@ html[data-theme="dark"]{color-scheme:dark;--bg:#141518;--paper:#1f2023;--ink:#f0
 </section>
 <section class="section" id="features">
 <div class="section-head"><div><div class="kicker">03 / Геймплей</div><h2>Особенности игры</h2></div><p>Разрушение окружения переплетается с личной историей и интерактивным повествованием.</p></div>
-<div class="features">
+<div class="feature-carousel-tools" aria-label="Управление каруселью">
+<span class="feature-swipe-hint">Листай карточки свайпом</span>
+<div class="feature-carousel-buttons">
+<button class="feature-arrow" type="button" id="feature-prev" aria-label="Предыдущая особенность" disabled>‹</button>
+<span class="feature-page" id="feature-page" aria-live="polite" aria-atomic="true">1 / 4</span>
+<button class="feature-arrow" type="button" id="feature-next" aria-label="Следующая особенность">›</button>
+</div>
+</div>
+<div class="features feature-carousel" id="feature-track" role="region" aria-roledescription="карусель" aria-label="Особенности игры, 4 карточки" tabindex="0">
 <article class="feature"><div class="feature-icon" aria-hidden="true">↗</div><h3>Исследуй город</h3><p>Осматривай покинутые места и находи собственные маршруты.</p></article>
 <article class="feature"><div class="feature-icon" aria-hidden="true">✳</div><h3>Разбивай препятствия</h3><p>Используй кувалду, чтобы освобождать путь и менять окружение.</p></article>
 <article class="feature"><div class="feature-icon" aria-hidden="true">◎</div><h3>Сражайся с машинами</h3><p>Дай отпор механическим двойникам прежних жителей.</p></article>
 <article class="feature"><div class="feature-icon" aria-hidden="true">◇</div><h3>Раскрывай прошлое</h3><p>Вспоминай людей, семью и события, которые сформировали героиню.</p></article>
 </div>
-<div class="quote"><strong>Не просто игра о разрушении.</strong> История затрагивает темы семьи, памяти, одиночества и чувства, что больше не принадлежишь месту, где вырос.</div>
+<p class="features-footnote">Темы истории: семья, память, одиночество и возвращение домой.</p>
 </section>
 <section class="section" id="install">
 <div class="section-head"><div><div class="kicker">04 / Запуск на ПК</div><h2>Установка и запуск</h2></div><p>Короткая инструкция для установщика вашей копии игры.</p></div>
@@ -191,6 +223,46 @@ document.querySelectorAll('.compact-gallery .shot img').forEach(function(image){
     image.closest('.shot').classList.add('image-error');
   });
 });
+
+/* Touch-friendly compact features carousel on phones. */
+const featureTrack=document.getElementById('feature-track');
+if(featureTrack){
+  const featureCards=Array.from(featureTrack.querySelectorAll('.feature'));
+  const prevFeature=document.getElementById('feature-prev');
+  const nextFeature=document.getElementById('feature-next');
+  const featurePage=document.getElementById('feature-page');
+  let activeFeature=0;
+  function featureOffset(i){return featureCards[i].offsetLeft-featureCards[0].offsetLeft}
+  function syncFeatures(){
+    const position=featureTrack.scrollLeft;
+    let best=0,dist=Infinity;
+    featureCards.forEach((card,i)=>{const d=Math.abs(position-featureOffset(i));if(d<dist){dist=d;best=i}});
+    activeFeature=best;
+    featurePage.textContent=(best+1)+' / '+featureCards.length;
+    prevFeature.disabled=best===0;
+    nextFeature.disabled=best===featureCards.length-1;
+  }
+  function goFeature(delta){
+    const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const to=Math.max(0,Math.min(featureCards.length-1,activeFeature+delta));
+    featureTrack.scrollTo({left:featureOffset(to),behavior:reduced?'auto':'smooth'});
+    activeFeature=to;
+    featurePage.textContent=(to+1)+' / '+featureCards.length;
+    prevFeature.disabled=to===0;
+    nextFeature.disabled=to===featureCards.length-1;
+  }
+  prevFeature.addEventListener('click',()=>goFeature(-1));
+  nextFeature.addEventListener('click',()=>goFeature(1));
+  featureTrack.addEventListener('scroll',syncFeatures,{passive:true});
+  featureTrack.addEventListener('keydown',e=>{
+    if(e.key==='ArrowLeft'||e.key==='ArrowRight'){
+      e.preventDefault();
+      goFeature(e.key==='ArrowRight'?1:-1);
+    }
+  });
+  window.addEventListener('resize',syncFeatures,{passive:true});
+  syncFeatures();
+}
 const shots=Array.from(document.querySelectorAll('.shot')),modal=document.getElementById('lightbox'),img=document.getElementById('lightbox-img'),caption=document.getElementById('lightbox-caption'),close=document.getElementById('lightbox-close');let idx=0,lastFocus=null;
 function show(n){idx=(n+shots.length)%shots.length;const s=shots[idx];img.src=s.querySelector('img').currentSrc||s.querySelector('img').src;img.alt=s.querySelector('img').alt;caption.textContent=s.dataset.caption||''}
 function openAt(n){lastFocus=document.activeElement;show(n);modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';close.focus()}
